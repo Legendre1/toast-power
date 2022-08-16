@@ -71,5 +71,5 @@ func main() {
 	router.GET("/todos/:id", getTodo)
 	router.PATCH("/todos/:id", toggleToDoStatus)
 	router.POST("/todos", addTodo)
-	router.Run("195.88.24.181:80")
+	router.Run(":80")
 }

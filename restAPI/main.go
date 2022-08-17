@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"net"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -71,5 +72,9 @@ func main() {
 	router.GET("/todos/:id", getTodo)
 	router.PATCH("/todos/:id", toggleToDoStatus)
 	router.POST("/todos", addTodo)
-	router.Run("0.0.0.0:8080")
+	//router.Run("0.0.0.0:8080")
+
+	server := &http.Server{Handler: router}
+	l, _ := net.Listen("tcp4", "0.0.0.0:8080")
+	server.Serve(l)
 }

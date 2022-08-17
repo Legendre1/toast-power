@@ -71,5 +71,6 @@ func main() {
 	router.GET("/todos/:id", getTodo)
 	router.PATCH("/todos/:id", toggleToDoStatus)
 	router.POST("/todos", addTodo)
-	router.Run("0.0.0.0:8080")
+	//router.Run("0.0.0.0:8080")
+	http.ListenAndServe(":8080", router)
 }
